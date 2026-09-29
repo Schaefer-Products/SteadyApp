@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Steady: a 28-day program for men whose partner says it may be over</title>
+<meta name="description" content="A private 28-day program. About ten minutes a day to stay calm and present when conversations get hard. Education, not therapy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ECEFEC; --surface:#F7F9F7; --ink:#14262A; --muted:#55696B; --rule:#C6D0CD;
+  --accent:#1E5B57; --on-accent:#FFFFFF; --lamp:#D9A43B; --alert:#8A3B2E;
+  --sans:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1B1D; --surface:#162528; --ink:#E4ECE9; --muted:#9DB0AD; --rule:#2A3C3E;
+    --accent:#6FC2B9; --on-accent:#0F1B1D; --lamp:#E0AE4B; --alert:#E39A8C;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1B1D; --surface:#162528; --ink:#E4ECE9; --muted:#9DB0AD; --rule:#2A3C3E;
+  --accent:#6FC2B9; --on-accent:#0F1B1D; --lamp:#E0AE4B; --alert:#E39A8C;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 1rem);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:1.125rem;line-height:1.62}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:3px}
+.wrap{max-width:44rem;margin:0 auto;padding:0 1.25rem}
+.wide{max-width:60rem}
+h1,h2,h3,.sans{font-family:var(--sans)}
+h1{font-size:clamp(2.15rem,6.4vw,3.9rem);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:0;max-width:19em}
+h1 span{display:block}
+h2{font-size:clamp(1.5rem,3.4vw,1.9rem);line-height:1.18;letter-spacing:-.015em;font-weight:700;margin:0 0 1rem}
+h3{font-size:1.05rem;margin:0;font-weight:700}
+p{margin:0 0 1rem;max-width:36em}
+.muted{color:var(--muted)}
+.small{font-size:.95rem;line-height:1.5}
+
+/* setup strip: hidden once forms and checkout links are configured */
+#setup{background:var(--ink);color:var(--paper);font:500 .9rem/1.4 var(--sans);padding:.6rem 1.25rem;text-align:center}
+
+header.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 0}
+.brand{display:flex;align-items:center;gap:.65rem;font:700 1.15rem var(--sans);letter-spacing:-.01em;text-decoration:none}
+.brand svg{width:44px;height:auto;color:var(--ink)}
+.top a.toplink{font:500 .95rem var(--sans);color:var(--muted)}
+
+.hero{padding:clamp(2.5rem,8vw,5.5rem) 0 3rem}
+.hero .sub{font-size:1.25rem;line-height:1.5;margin:1.75rem 0 2rem;max-width:33em}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:3.25rem;padding:.85rem 1.6rem;border:0;border-radius:6px;background:var(--accent);color:var(--on-accent);font:700 1.05rem var(--sans);text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.textlink{font:500 1rem var(--sans);color:var(--ink)}
+.fine{margin-top:1rem;font:400 .95rem/1.5 var(--sans);color:var(--muted);max-width:34em}
+
+section.block{padding:3.25rem 0;border-top:1px solid var(--rule)}
+.statement{font:700 clamp(1.35rem,3vw,1.7rem)/1.28 var(--sans);letter-spacing:-.012em;margin:1.75rem 0 0;max-width:24em;padding-left:1rem;border-left:4px solid var(--lamp)}
+
+/* weeks */
+ol.weeks{list-style:none;margin:0;padding:0}
+ol.weeks li{display:grid;grid-template-columns:6.5rem 1fr;gap:.25rem 1rem;padding:1.1rem 0;border-top:1px solid var(--rule)}
+ol.weeks li:first-child{border-top:0;padding-top:0}
+ol.weeks .wk{font:700 1rem var(--sans)}
+ol.weeks h3{margin-bottom:.15rem}
+ol.weeks p{margin:0;color:var(--muted);font-size:1.02rem}
+@media (max-width:34rem){ol.weeks li{grid-template-columns:1fr}}
+
+details{border-top:1px solid var(--rule);padding:1rem 0}
+details:last-of-type{border-bottom:1px solid var(--rule)}
+summary{cursor:pointer;font:700 1.05rem var(--sans);list-style-position:outside;padding:.15rem 0}
+details p,details ol{margin-top:.75rem}
+ol.days{margin:.9rem 0 0;padding-left:1.4rem}
+ol.days li{margin:0 0 .8rem;padding-left:.25rem}
+ol.days b{font:700 1rem var(--sans)}
+ol.days span{display:block;color:var(--muted);font-size:1rem}
+
+/* sample (the memorable element) */
+.sample{margin-top:1.5rem}
+.vial{position:relative;height:3.75rem;border:2px solid var(--ink);border-radius:999px;background:var(--surface);overflow:hidden}
+.vial::before,.vial::after{content:"";position:absolute;top:18%;bottom:18%;width:2px;background:var(--ink);opacity:.55}
+.vial::before{left:calc(50% - 1.75rem)}
+.vial::after{left:calc(50% + 1.75rem)}
+.bubble{position:absolute;top:50%;left:50%;width:2.3rem;height:2.3rem;margin:-1.15rem 0 0 -1.15rem;border-radius:50%;background:var(--lamp);transition:left .9s ease-in-out}
+.vial.in .bubble{left:calc(100% - 1.75rem);transition-duration:5s}
+.vial.out .bubble{left:1.75rem;transition-duration:5s}
+.sample-row{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-top:1.25rem}
+#sample-text{font:700 1.15rem var(--sans);min-width:11rem}
+#sample-clock{font:500 1rem var(--sans);color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* safety */
+.notfor ul{margin:0 0 1.25rem;padding-left:1.25rem;max-width:36em}
+.notfor li{margin-bottom:.45rem}
+.help{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:1.1rem 1.25rem;font:400 1rem/1.55 var(--sans);max-width:36em}
+.help p{margin:0 0 .5rem;max-width:none}
+.help p:last-child{margin:0}
+
+/* price */
+.price-panel{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:clamp(1.25rem,4vw,2rem);max-width:36rem}
+.price-big{font:700 clamp(3rem,10vw,4.25rem)/1 var(--sans);letter-spacing:-.03em}
+.price-unit{font:500 1.05rem var(--sans);color:var(--muted);margin:.35rem 0 1.25rem}
+.terms{margin:1.25rem 0 0;padding:0;list-style:none;font:400 .98rem/1.5 var(--sans)}
+.terms li{margin-bottom:.5rem;padding-left:1.1rem;position:relative}
+.terms li::before{content:"";position:absolute;left:0;top:.6em;width:.4rem;height:.4rem;border-radius:50%;background:var(--lamp)}
+
+/* waitlist form */
+form.stack{display:flex;flex-wrap:wrap;gap:.75rem;max-width:34rem;margin-top:1rem}
+form.stack input[type=email],form.stack input[type=number]{flex:1 1 15rem;min-height:3.25rem;padding:.7rem .9rem;font:400 1.05rem var(--sans);color:var(--ink);background:var(--surface);border:2px solid var(--rule);border-radius:6px}
+form.stack input:focus-visible{border-color:var(--accent);outline-offset:1px}
+label.field{display:block;flex:1 1 100%;font:500 1rem/1.4 var(--sans)}
+label.field input{display:block;width:100%;margin-top:.35rem}
+#wl-note{font:500 .98rem/1.45 var(--sans);margin:.75rem 0 0;max-width:34em;min-height:1.4em}
+#wl-note.warn{color:var(--alert)}
+
+footer{border-top:1px solid var(--rule);padding:2.5rem 0 3rem;font:400 .92rem/1.55 var(--sans);color:var(--muted)}
+footer p{max-width:44em}
+
+body.thanks-mode .hide-on-thanks{display:none}
+body:not(.thanks-mode) #thanks{display:none}
+
+</style>
+</head>
+<body>
+
+<div id="setup" hidden>Setup mode: connect your email form and checkout links in CONFIG (top of the script). This strip disappears once they are set.</div>
+
+<div class="wrap wide">
+  <header class="top">
+    <a class="brand" href="#top" aria-label="Steady, home">
+      <svg viewBox="0 0 44 18" role="img" aria-hidden="true" focusable="false">
+        <rect x="1" y="1" width="42" height="16" rx="8" fill="none" stroke="currentColor" stroke-width="2"/>
+        <line x1="17" y1="5" x2="17" y2="13" stroke="currentColor" stroke-width="1.5" opacity=".55"/>
+        <line x1="27" y1="5" x2="27" y2="13" stroke="currentColor" stroke-width="1.5" opacity=".55"/>
+        <circle cx="22" cy="9" r="4.2" style="fill:var(--lamp)"/>
+      </svg>
+      Steady
+    </a>
+    <a class="toplink hide-on-thanks" href="#price" data-nav-price>See the price</a>
+  </header>
+</div>
+
+<main id="top">
+
+<!-- Thank-you view, shown when the URL has ?thanks=pre or ?thanks=wait -->
+<section id="thanks" class="wrap" style="padding:3rem 1.25rem 4rem">
+  <h1 id="thanks-title" style="font-size:clamp(2rem,5vw,3rem)"></h1>
+  <p id="thanks-body" class="sub" style="margin-top:1.25rem;font-size:1.2rem"></p>
+  <div class="block" style="margin-top:2.5rem;border-top:1px solid var(--rule);padding-top:2rem">
+    <h2>Four quick questions about price</h2>
+    <p class="muted">Optional. It takes under a minute and helps us set a fair price for a program like this. Answer in dollars for the full 28 days.</p>
+    <form id="survey" class="stack" method="post">
+      <label class="field">At what price would this be so cheap you'd doubt its quality?
+        <input type="number" inputmode="decimal" min="0" step="1" name="vw_too_cheap">
+      </label>
+      <label class="field">At what price would it be a bargain?
+        <input type="number" inputmode="decimal" min="0" step="1" name="vw_bargain">
+      </label>
+      <label class="field">At what price would it start to feel expensive, but you'd still consider it?
+        <input type="number" inputmode="decimal" min="0" step="1" name="vw_expensive">
+      </label>
+      <label class="field">At what price would it be too expensive to consider?
+        <input type="number" inputmode="decimal" min="0" step="1" name="vw_too_expensive">
+      </label>
+      <button class="btn" type="submit">Send my answers</button>
+    </form>
+    <p id="survey-note" class="small muted" style="margin-top:.75rem" role="status"></p>
+  </div>
+</section>
+
+<!-- Hero -->
+<section class="wrap wide hero hide-on-thanks">
+  <h1 id="h1"></h1>
+  <p class="sub" id="sub"></p>
+  <div class="cta-row">
+    <a class="btn" id="cta-hero" href="#waitlist" data-cta="hero"></a>
+    <a class="textlink" href="#waitlist" data-nav-waitlist>Not ready? Join the waitlist</a>
+  </div>
+  <p class="fine" id="hero-fine"></p>
+</section>
+
+<div class="wrap hide-on-thanks">
+
+  <section class="block" aria-labelledby="pattern-h">
+    <h2 id="pattern-h"></h2>
+    <div id="pattern"></div>
+    <p class="statement">This is a cycle two people create. You can only change your half, and that's the half this program covers.</p>
+  </section>
+
+  <section class="block" aria-labelledby="day-h">
+    <h2 id="day-h">What a day looks like</h2>
+    <p>Each day takes 8 to 12 minutes: one short lesson, one exercise, and a one-minute note about what happened in real life.</p>
+    <p>Days unlock in order, so there's nothing to decide when you're anxious. If you miss a day, you pick up where you left off instead of starting over.</p>
+    <p>You don't need her to take part, and you don't need to talk to anyone. It's you and the work.</p>
+  </section>
+
+  <section class="block" aria-labelledby="weeks-h">
+    <h2 id="weeks-h">The 28 days</h2>
+    <ol class="weeks" id="weeks"></ol>
+    <details>
+      <summary>See week one, day by day</summary>
+      <ol class="days" id="week1"></ol>
+    </details>
+    <p class="fine">This is the draft outline for the first cohort. Details may shift as we learn from the people in it.</p>
+  </section>
+
+  <section class="block" aria-labelledby="sample-h">
+    <h2 id="sample-h">Try one minute of it now</h2>
+    <p>Slow breathing is part of week one. This is that practice: one minute, no sign-up. Follow the bubble as it moves. Breathe in as it drifts right, out as it drifts back.</p>
+    <div class="sample">
+      <div class="vial" id="vial" aria-hidden="true"><div class="bubble" id="bubble"></div></div>
+      <div class="sample-row">
+        <button class="btn ghost" id="sample-btn" type="button">Start one minute</button>
+        <span id="sample-text" role="status" aria-live="polite">Ready when you are.</span>
+        <span id="sample-clock" aria-hidden="true">1:00</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block notfor" aria-labelledby="notfor-h">
+    <h2 id="notfor-h">Who this is for, and who it isn't</h2>
+    <p>This is for men whose partner has said the relationship might end, who want to stay, and who are willing to work on their own half.</p>
+    <p>It isn't the right fit if any of these are true:</p>
+    <ul>
+      <li>There has been physical violence, threats, or sexual coercion in the relationship.</li>
+      <li>She has told you she's afraid of you, or a protective order is in place.</li>
+      <li>You monitor her phone or location, control the money, or limit who she sees.</li>
+      <li>She has asked for no contact, or she has left and you want to get her back.</li>
+    </ul>
+    <p>You'll answer a short check before you start and again each week. If any of these apply, the program won't start and you'll be pointed to better help. If you're drinking heavily or struggling with depression, the program adds pointers to get help alongside it.</p>
+    <div class="help">
+      <p><b>If you're thinking about ending your life,</b> call or text 988 (U.S.).</p>
+      <p><b>If you're being hurt in your relationship,</b> the National Domestic Violence Hotline is 1-800-799-7233, or text START to 88788. Men are abused too.</p>
+    </div>
+  </section>
+
+  <section class="block" id="price" aria-labelledby="price-h">
+    <h2 id="price-h">Pre-order the first cohort</h2>
+    <div class="price-panel">
+      <div class="price-big" id="price-big"></div>
+      <div class="price-unit" id="price-unit"></div>
+      <a class="btn" id="cta-price" href="#waitlist" data-cta="price"></a>
+      <ul class="terms" id="terms"></ul>
+    </div>
+  </section>
+
+  <section class="block" id="waitlist" aria-labelledby="wl-h">
+    <h2 id="wl-h">Not ready to pay? Join the waitlist</h2>
+    <p>We'll email you when the first cohort opens. Only about this program, nothing else.</p>
+    <form id="wl-form" class="stack" method="post" novalidate>
+      <input type="email" id="wl-email" autocomplete="email" inputmode="email" placeholder="Your email" aria-label="Your email" required>
+      <button class="btn" type="submit">Join the waitlist</button>
+    </form>
+    <p id="wl-note" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="block" aria-labelledby="faq-h">
+    <h2 id="faq-h">Questions</h2>
+    <details>
+      <summary>Will this make her stay?</summary>
+      <p>We can't promise that, and no honest program can. Changing your half of a pattern can change how hard conversations go. What she decides is up to her, and part of the program is learning to respect that.</p>
+    </details>
+    <details>
+      <summary>Is this therapy?</summary>
+      <p>No. It's education and daily practice. It doesn't diagnose or treat anything and it doesn't replace a therapist. If you'd like one, it can help you go in with a clearer picture of your own patterns.</p>
+    </details>
+    <details>
+      <summary>Does she have to do it too?</summary>
+      <p>No. The program covers only your half, so nothing depends on her taking part.</p>
+    </details>
+    <details>
+      <summary>What if I miss a day?</summary>
+      <p>You pick up where you left off. Days unlock in order, and nothing resets.</p>
+    </details>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap wide">
+    <p>Steady is an educational program. It is not therapy, counseling, or medical treatment, and it can't promise any outcome for your relationship. It is currently in pre-launch.</p>
+    <p>In crisis? Call or text 988 (U.S.). Being hurt by a partner? National Domestic Violence Hotline: 1-800-799-7233, or text START to 88788.</p>
+    <p id="contact"></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ============ CONFIG: edit these ============ */
+  var CONFIG = {
+    // Payment links (e.g. Stripe Payment Links), one per price arm. Leave '' until ready.
+    checkout: { '49': '', '99': '', '149': '', 'sub': '' },
+
+    // Your email tool's form. Kit: the form's subscription URL and field name "email_address".
+    // Mailchimp: the embedded form's action URL and field name "EMAIL" (and set fieldName to k => k).
+    waitlist: {
+      action: '',
+      emailField: 'email_address',
+      fieldName: function (k) { return 'fields[' + k + ']'; }
+    },
+
+    // Where the price survey posts. Leave '' to reuse the waitlist form.
+    survey: { action: '' },
+
+    launchBy: 'December 31, 2026',   // if you haven't started by this date, buyers are refunded automatically
+    refundDays: 30,                  // refund window after the program starts
+    contactEmail: ''                 // shown in the footer for refund requests
+  };
+  /* ============================================ */
+
+  var $ = function (s) { return document.querySelector(s); };
+  var qs = new URLSearchParams(location.search);
+
+  function store(k, v) {
+    try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; }
+    return null;
+  }
+  function track(name, data) {
+    var payload = Object.assign({ event: name, angle: angle, arm: arm }, data || {});
+    try { (window.dataLayer = window.dataLayer || []).push(payload); } catch (e) {}
+    try { document.dispatchEvent(new CustomEvent('steady:track', { detail: payload })); } catch (e) {}
+  }
+
+  /* ---------- Variants: ?v=A1|A2|B1|B2 and ?p=49|99|149|sub ---------- */
+  var ANGLES = {
+    A1: { f: 'A', h: ['She said it might be over.', 'You shut down every time it gets heated.'] },
+    A2: { f: 'A', h: ['Learn to stay in hard conversations without going quiet.'] },
+    B1: { f: 'B', h: ['She said it might be over.', 'Every talk turns into you defending yourself.'] },
+    B2: { f: 'B', h: ['Learn to hear her without arguing back.'] }
+  };
+  var ARMS = ['49', '99', '149', 'sub'];
+
+  var angle = (qs.get('v') || 'A1').toUpperCase();
+  if (!ANGLES[angle]) angle = 'A1';
+  var arm = (qs.get('p') || '').toLowerCase();
+  if (ARMS.indexOf(arm) < 0) {
+    arm = store('steady_arm');
+    if (ARMS.indexOf(arm) < 0) arm = ARMS[Math.floor(Math.random() * ARMS.length)];
+  }
+  store('steady_arm', arm);
+  var focus = ANGLES[angle].f;
+
+  var PRICE = {
+    '49':  { big: '$49',    unit: 'one-time payment for the full 28 days', btn: 'Pre-order for $49' },
+    '99':  { big: '$99',    unit: 'one-time payment for the full 28 days', btn: 'Pre-order for $99' },
+    '149': { big: '$149',   unit: 'one-time payment for the full 28 days', btn: 'Pre-order for $149' },
+    'sub': { big: '$19.99', unit: 'per month, cancel anytime',             btn: 'Reserve for $19.99 a month' }
+  }[arm];
+
+  /* ---------- Content by focus ---------- */
+  var CONTENT = {
+    A: {
+      sub: 'A private 28-day program. About ten minutes a day to stay calm and present when conversations get hard, instead of shutting down, so you can show up differently, whatever she decides.',
+      patternTitle: 'What tends to happen when it gets heated',
+      pattern: [
+        'An argument starts and your body speeds up before your mind does. Your heart pounds, your head goes blank, and all you want is out. So you go quiet, or you leave, and the conversation never finishes.',
+        'You may be doing it to keep things from getting worse. From her side, it can look like you have stopped caring. Then she pushes harder, and you pull further away.'
+      ],
+      weeks: [
+        ['Week 1', 'Understand the cycle', 'Hear her complaint in her own words, see the pattern you are both in, and learn your body\'s early warning signs.'],
+        ['Week 2', 'Pause and return', 'Ask for a break the right way, say exactly when you\'ll be back, and come back. Includes firm rules so a break never becomes a way to punish or control.'],
+        ['Week 3', 'Stay in the room', 'Practice seeing a hard conversation the way a neutral observer would, and stay with difficult things while the heat is low.'],
+        ['Week 4', 'Real life and her space', 'Use it in real conversations, tell reconnecting apart from pressuring, respect her decision and her space, and write your plan for after day 28.']
+      ],
+      week1: [
+        ['Fit and safety check', 'Short screening questions. Crisis resources up front. Expectations set: this is education, not therapy.'],
+        ['What happened, in her words', 'Write her complaint down without rebutting it. Five minutes.'],
+        ['The cycle', 'Map your last fight on a simple diagram of how "she pushes, I pull away" feeds itself. No blame.'],
+        ['Flooding', 'Notice your own early signs: heart rate, going blank, wanting to leave. Body-signal checklist and a two-minute slow-breathing practice.'],
+        ['Pause and return', 'Write a personal break script and say it aloud. Include a specific time you\'ll come back.'],
+        ['Respecting space', 'Sort example behaviors into "reconnecting" and "pressuring".'],
+        ['A neutral observer', 'Short writing exercise: describe last week\'s fight the way an outsider would.'],
+        ['Review', 'What you noticed and what to watch for this week. Safety re-check.']
+      ]
+    },
+    B: {
+      sub: 'A private 28-day program. About ten minutes a day to hear what she is actually saying without arguing back, so you can show up differently, whatever she decides.',
+      patternTitle: 'What tends to happen when she raises something hard',
+      pattern: [
+        'She brings something up and you hear an accusation. The explanation arrives fast: the context, what you meant, what she got wrong.',
+        'Each point may be true. Together they can tell her she isn\'t being heard. So she says it again, louder, and you defend harder.'
+      ],
+      weeks: [
+        ['Week 1', 'Understand the cycle', 'Hear her complaint in her own words, see the pattern you are both in, and learn to catch the moment you start to defend.'],
+        ['Week 2', 'Hear it first', 'Listen all the way through and say back what she said before you answer. Practice with scripts and reflection, on your own.'],
+        ['Week 3', 'Respond without rebutting', 'Separate her feeling from the facts, own your part, and practice seeing a hard conversation the way a neutral observer would.'],
+        ['Week 4', 'Real life and her space', 'Use it in real conversations, tell reconnecting apart from pressuring, respect her decision and her space, and write your plan for after day 28.']
+      ],
+      week1: [
+        ['Fit and safety check', 'Short screening questions. Crisis resources up front. Expectations set: this is education, not therapy.'],
+        ['What happened, in her words', 'Write her complaint down without rebutting it. Five minutes.'],
+        ['The cycle', 'Map your last fight on a simple diagram of how "she raises it, I defend" feeds itself. No blame.'],
+        ['The defend reflex', 'Notice your own early signs: a tight jaw, a rebuttal forming. Body-signal checklist and a two-minute slow-breathing practice.'],
+        ['Hear it first', 'Practice saying back what she said before you answer. Write and rehearse your own lines.'],
+        ['Respecting space', 'Sort example behaviors into "reconnecting" and "pressuring".'],
+        ['A neutral observer', 'Short writing exercise: describe last week\'s fight the way an outsider would.'],
+        ['Review', 'What you noticed and what to watch for this week. Safety re-check.']
+      ]
+    }
+  }[focus];
+
+  /* ---------- Render ---------- */
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  document.title = 'Steady: a 28-day program for men whose partner says it may be over';
+
+  var h1 = $('#h1');
+  ANGLES[angle].h.forEach(function (line) { h1.appendChild(el('span', '', line)); });
+  $('#sub').textContent = CONTENT.sub;
+  $('#pattern-h').textContent = CONTENT.patternTitle;
+  CONTENT.pattern.forEach(function (t) { $('#pattern').appendChild(el('p', '', t)); });
+
+  CONTENT.weeks.forEach(function (w) {
+    var li = el('li');
+    li.appendChild(el('span', 'wk', w[0]));
+    var d = el('div');
+    d.appendChild(el('h3', '', w[1]));
+    d.appendChild(el('p', '', w[2]));
+    li.appendChild(d);
+    $('#weeks').appendChild(li);
+  });
+
+  CONTENT.week1.forEach(function (d, i) {
+    var li = el('li');
+    var b = el('b', '', 'Day ' + i + ': ' + d[0]);
+    li.appendChild(b);
+    li.appendChild(el('span', '', d[1]));
+    $('#week1').appendChild(li);
+  });
+
+  var oneTime = arm !== 'sub';
+  $('#cta-hero').textContent = PRICE.btn;
+  $('#cta-price').textContent = PRICE.btn;
+  $('#price-big').textContent = PRICE.big;
+  $('#price-unit').textContent = PRICE.unit;
+  $('#hero-fine').textContent = (oneTime ? 'One-time payment. ' : '') +
+    'Fully refundable before the program starts. The first cohort starts by ' + CONFIG.launchBy + '.';
+  document.querySelector('[data-nav-price]').textContent = 'See the price';
+
+  var terms = [
+    'You are pre-ordering before the program is finished. The first cohort starts by ' + CONFIG.launchBy + '.',
+    'Full refund any time before it starts. If we haven\'t started by ' + CONFIG.launchBy + ', we refund you automatically.',
+    'After it starts, ask within ' + CONFIG.refundDays + ' days and we\'ll refund you.',
+    'A program of education and practice. Not therapy, and no promise about your relationship.'
+  ];
+  if (!oneTime) terms.splice(2, 0, 'Cancel the subscription whenever you like. You can also stop at day 28.');
+  terms.forEach(function (t) { $('#terms').appendChild(el('li', '', t)); });
+
+  if (CONFIG.contactEmail) {
+    var c = $('#contact');
+    c.appendChild(document.createTextNode('Refund questions: '));
+    var a = el('a', '', CONFIG.contactEmail);
+    a.href = 'mailto:' + CONFIG.contactEmail;
+    c.appendChild(a);
+  }
+
+  /* ---------- Setup strip ---------- */
+  var checkoutReady = !!CONFIG.checkout[arm];
+  var waitlistReady = !!CONFIG.waitlist.action;
+  if (!checkoutReady || !waitlistReady) $('#setup').hidden = false;
+
+  /* ---------- Pre-order buttons ---------- */
+  var ref = angle + '_' + arm;
+  ['#cta-hero', '#cta-price'].forEach(function (sel) {
+    var a = $(sel);
+    if (checkoutReady) {
+      try {
+        var u = new URL(CONFIG.checkout[arm]);
+        u.searchParams.set('client_reference_id', ref);
+        a.href = u.toString();
+      } catch (e) { a.href = CONFIG.checkout[arm]; }
+    }
+    a.addEventListener('click', function (ev) {
+      track('preorder_click', { where: a.getAttribute('data-cta') });
+      if (!checkoutReady) {
+        ev.preventDefault();
+        var note = $('#wl-note');
+        note.className = '';
+        note.textContent = 'Pre-orders open soon. Leave your email and we\'ll hold the ' + PRICE.big + (oneTime ? '' : '/month') + ' price for you.';
+        $('#waitlist').scrollIntoView({ behavior: 'smooth' });
+        $('#wl-email').focus({ preventScroll: true });
+      }
+    });
+  });
+
+  /* ---------- Hidden fields shared by waitlist and survey ---------- */
+  function addHidden(form) {
+    var pairs = { variant: angle, price_arm: arm };
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+      if (qs.get(k)) pairs[k] = qs.get(k);
+    });
+    Object.keys(pairs).forEach(function (k) {
+      var i = document.createElement('input');
+      i.type = 'hidden';
+      i.name = CONFIG.waitlist.fieldName(k);
+      i.value = pairs[k];
+      form.appendChild(i);
+    });
+  }
+
+  /* ---------- Waitlist form ---------- */
+  var wl = $('#wl-form');
+  wl.action = CONFIG.waitlist.action || '#';
+  $('#wl-email').name = CONFIG.waitlist.emailField;
+  addHidden(wl);
+  wl.addEventListener('submit', function (ev) {
+    var note = $('#wl-note');
+    var email = $('#wl-email').value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      ev.preventDefault();
+      note.className = 'warn';
+      note.textContent = 'Enter a valid email address, like name@example.com.';
+      return;
+    }
+    if (!waitlistReady) {
+      ev.preventDefault();
+      note.className = 'warn';
+      note.textContent = 'Setup needed: add your email form URL to CONFIG.waitlist.action. Nothing was sent.';
+      return;
+    }
+    track('waitlist_submit');
+  });
+
+  /* ---------- Thank-you view ---------- */
+  var thanks = qs.get('thanks');
+  if (thanks === 'pre' || thanks === 'wait') {
+    document.body.classList.add('thanks-mode');
+    $('#thanks-title').textContent = thanks === 'pre' ? 'You\'re in the first cohort.' : 'You\'re on the waitlist.';
+    $('#thanks-body').textContent = thanks === 'pre'
+      ? 'Your pre-order is fully refundable before the program starts, and we\'ll email you the start date.'
+      : 'We\'ll email you when the first cohort opens.';
+    var sv = $('#survey');
+    sv.action = CONFIG.survey.action || CONFIG.waitlist.action || '#';
+    addHidden(sv);
+    Array.prototype.forEach.call(sv.querySelectorAll('input[type=number]'), function (i) {
+      i.name = CONFIG.waitlist.fieldName(i.name);
+    });
+    sv.addEventListener('submit', function (ev) {
+      if (!(CONFIG.survey.action || CONFIG.waitlist.action)) {
+        ev.preventDefault();
+        $('#survey-note').textContent = 'Setup needed: add a form URL to CONFIG.survey.action. Nothing was sent.';
+      } else {
+        track('survey_submit');
+      }
+    });
+    track('thanks_view', { kind: thanks });
+  } else {
+    track('page_view');
+  }
+
+  /* ---------- Sample: one minute of slow breathing ---------- */
+  var vial = $('#vial'), btn = $('#sample-btn'), sText = $('#sample-text'), sClock = $('#sample-clock');
+  var timer = null, elapsed = 0, lastPhase = -1;
+  function fmt(s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+  function stop(done) {
+    clearInterval(timer); timer = null; lastPhase = -1;
+    vial.className = 'vial';
+    btn.textContent = done ? 'Do it again' : 'Start one minute';
+    sText.textContent = done ? 'Done. That\'s one exercise from week one.' : 'Ready when you are.';
+    sClock.textContent = done ? '0:00' : '1:00';
+    if (done) track('sample_complete');
+  }
+  function tick() {
+    if (elapsed >= 60) { stop(true); return; }
+    var phase = Math.floor(elapsed / 5) % 2;
+    if (phase !== lastPhase) {
+      lastPhase = phase;
+      void vial.offsetWidth; // flush styles so the transition always runs
+      vial.className = 'vial ' + (phase === 0 ? 'in' : 'out');
+      sText.textContent = phase === 0 ? 'Breathe in' : 'Breathe out';
+    }
+    sClock.textContent = fmt(60 - elapsed);
+    elapsed += 1;
+  }
+  btn.addEventListener('click', function () {
+    if (timer) { stop(false); return; }
+    elapsed = 0; lastPhase = -1;
+    btn.textContent = 'Stop';
+    track('sample_start');
+    tick();
+    timer = setInterval(tick, 1000);
+  });
+
+  /* ---------- Nav clicks ---------- */
+  document.querySelector('[data-nav-waitlist]').addEventListener('click', function () { track('waitlist_link_click'); });
+})();
+</script>
+</body>
+</html>
