@@ -298,7 +298,12 @@ body:not(.thanks-mode) #thanks{display:none}
   /* ============ CONFIG: edit these ============ */
   var CONFIG = {
     // Payment links (e.g. Stripe Payment Links), one per price arm. Leave '' until ready.
-    checkout: { '49': '', '99': '', '149': '', 'sub': '' },
+    checkout: {
+      49: "https://www.paypal.com/ncp/payment/BFJ8XYSRL85PL",
+      99: "https://www.paypal.com/ncp/payment/SDA9AQL9553LN",
+      149: "https://www.paypal.com/ncp/payment/Q28R3F2CC5PQS",
+      sub: "https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-01A53439JG648714ENK7EFEA"
+    },
 
     // Your email tool's form. Kit: the form's subscription URL and field name "email_address".
     // Mailchimp: the embedded form's action URL and field name "EMAIL" (and set fieldName to k => k).
